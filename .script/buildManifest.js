@@ -1,5 +1,5 @@
 const fs = require('fs');
-const config = require('codingPlugin/package.json');
+const config = require('codingIdePlugin/package.json');
 const version = config.codingIdePackage.version || config.version
 const newPackage = {};
 

@@ -11,7 +11,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "NODE_ENV=development nodemon --watch package.json --watch server.js --exec babel-node server.js",
-    "build": "yarn run prebuild && yarn run clean && NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors && yarn run generateManifest",
+    "build": "yarn run clean && NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors && yarn run generateManifest",
     "generateManifest": "babel-node .script/buildManifest.js",
     "prebuild": "sh .script/getPackage.sh"
   },
@@ -47,7 +47,6 @@
     "webpack-cleanup-plugin": "^0.4.1",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-dev-server": "^2.4.1",
-    "express": "^4.14.0",
     "webpack-hot-middleware": "^2.17.0"
   },
   "peerDependencies": {

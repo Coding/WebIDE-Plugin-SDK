@@ -1200,8 +1200,8 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.3.0"
 
 caniuse-db@^1.0.30000346, caniuse-db@^1.0.30000628, caniuse-db@^1.0.30000631:
-  version "1.0.30000632"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000632.tgz#12e3f5c114d19de58e74dec478a327fb2eeb6bcb"
+  version "1.0.30000634"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000634.tgz#439f4b95e715b1fd105196d40c681edd7122e622"
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -1334,12 +1334,13 @@ code-point-at@^1.0.0:
 
 "codingIdePlugin@ssh://git@github.com/blizzardzheng/WebIDE-Plugin-Env.git":
   version "0.0.1-alpha.3"
-  resolved "ssh://git@github.com/blizzardzheng/WebIDE-Plugin-Env.git#cbb415b78e7bd8a84f5e4c724941d979127d5e56"
+  resolved "ssh://git@github.com/blizzardzheng/WebIDE-Plugin-Env.git#a5d4603d55ab3babd99b9a238d4d12db9db65655"
   dependencies:
     babel-preset-env "^1.1.8"
     babel-runtime "^6.11.6"
     body-parser "^1.15.2"
     classnames "^2.2.5"
+    codingSDK "ssh://git@github.com/blizzardzheng/WebIDE-Plugin-SDK.git"
     cors "^2.8.1"
     express "^4.14.0"
     fs-promise "^1.0.0"
@@ -1354,23 +1355,19 @@ code-point-at@^1.0.0:
 
 "codingSDK@ssh://git@github.com/blizzardzheng/WebIDE-Plugin-SDK.git":
   version "0.0.1-alpha.3"
-  resolved "ssh://git@github.com/blizzardzheng/WebIDE-Plugin-SDK.git#19e8e38de406b47fc726a769e3dd5c4352d9f00d"
+  resolved "ssh://git@github.com/blizzardzheng/WebIDE-Plugin-SDK.git#a4eb6bdec180ccd720d7603ff39d632ae940e8d2"
   dependencies:
     babel-preset-env "^1.1.8"
     babel-runtime "^6.11.6"
-    body-parser "^1.15.2"
-    classnames "^2.2.5"
+    codingIdePlugin "ssh://git@github.com/blizzardzheng/WebIDE-Plugin-Env.git"
+    codingSDK "ssh://git@github.com/blizzardzheng/WebIDE-Plugin-SDK.git"
     cors "^2.8.1"
-    express "^4.14.0"
     fs-promise "^1.0.0"
     nodemon "^1.11.0"
-    react-redux "^4.4.6"
-    redux "^3.6.0"
-    redux-actions "^1.1.0"
-    redux-thunk "^2.1.0"
     rimraf "^2.6.1"
-    socket.io "^1.7.3"
     style-loader "^0.13.2"
+    webpack "^2.2.1"
+    webpack-cleanup-plugin "^0.4.1"
 
 color-convert@^1.3.0:
   version "1.9.0"
@@ -1822,9 +1819,16 @@ diffie-hellman@^5.0.0:
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
 
-doctrine@1.3.x, doctrine@^1.2.2:
+doctrine@1.3.x:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-1.3.0.tgz#13e75682b55518424276f7c173783456ef913d26"
+  dependencies:
+    esutils "^2.0.2"
+    isarray "^1.0.0"
+
+doctrine@^1.2.2:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-1.5.0.tgz#379dce730f6166f76cefa4e6707a159b02c5a6fa"
   dependencies:
     esutils "^2.0.2"
     isarray "^1.0.0"
@@ -3812,13 +3816,17 @@ oauth-sign@~0.8.1:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
-object-assign@4.1.0, object-assign@^4.0.1, object-assign@^4.1.0:
+object-assign@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.0.tgz#7a3b3d0e98063d43f4c03f2e8ae6cd51a86883a0"
 
 object-assign@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-3.0.0.tgz#9bedd5ca0897949bca47e7ff408062d549f587f2"
+
+object-assign@^4.0.1, object-assign@^4.1.0:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
 object-component@0.0.3:
   version "0.0.3"
@@ -4892,8 +4900,8 @@ sha.js@^2.3.6:
     inherits "^2.0.1"
 
 shelljs@^0.7.5:
-  version "0.7.6"
-  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.7.6.tgz#379cccfb56b91c8601e4793356eb5382924de9ad"
+  version "0.7.7"
+  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.7.7.tgz#b2f5c77ef97148f4b4f6e22682e10bba8667cff1"
   dependencies:
     glob "^7.0.0"
     interpret "^1.0.0"
@@ -5192,7 +5200,7 @@ stylus@^0.54.5:
     sax "0.5.x"
     source-map "0.1.x"
 
-supports-color@3.1.2, supports-color@^3.1.0, supports-color@^3.1.1:
+supports-color@3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.1.2.tgz#72a262894d9d408b956ca05ff37b2ed8a6e2a2d5"
   dependencies:
@@ -5202,7 +5210,7 @@ supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
 
-supports-color@^3.2.3:
+supports-color@^3.1.0, supports-color@^3.1.1, supports-color@^3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
   dependencies:

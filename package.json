@@ -1,9 +1,9 @@
 {
-  "name": "WebIDE-Plugin-CI",
+  "name": "WebIDE-Plugin-SDK",
   "version": "0.0.1-alpha.03",
   "description": "WebIDE-Plugin-Env for Coding WebIDE",
   "repository": {
-    "url": "https://github.com/blizzardzheng/WebIDE-Plugin-Env.git"
+    "url": "https://github.com/blizzardzheng/WebIDE-Plugin-SDK.git"
   },
   "license": "ISC",
   "author": "candy <candy.zhengxq@gmail.com>",
@@ -11,22 +11,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "NODE_ENV=development nodemon --watch package.json --watch server.js --exec babel-node server.js",
-    "build": "npm run getPlugin && npm run clean && NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors && npm run generateManifest",
+    "build": "yarn run prebuild && yarn run clean && NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors && yarn run generateManifest",
     "generateManifest": "babel-node .script/buildManifest.js",
-    "getPlugin":"babel-node .script/getPackageFromEnv.js"
-  },
-  "codingIdePackage": {
-    "name": "coding_web_ide_plugin",
-    "displayName": "Environment",
-    "description": "WebIDE-Plugin-Env for Coding WebIDE",
-    "type": "extension",
-    "ui": {
-      "position": "right",
-      "label": {
-        "text": "Environment",
-        "icon": "fa fa-desktop"
-      }
-    }
+    "prebuild": "sh .script/getPackage.sh"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
@@ -45,6 +32,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
+    "express": "^4.14.0",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "git-url-parse": "^6.0.1",
     "jsdom": "^9.5.0",
@@ -59,6 +47,7 @@
     "webpack-cleanup-plugin": "^0.4.1",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-dev-server": "^2.4.1",
+    "express": "^4.14.0"    
     "webpack-hot-middleware": "^2.17.0"
   },
   "peerDependencies": {
@@ -67,19 +56,15 @@
   "dependencies": {
     "babel-preset-env": "^1.1.8",
     "babel-runtime": "^6.11.6",
-    "body-parser": "^1.15.2",
-    "classnames": "^2.2.5",
+    "codingIdePlugin": "ssh://git@github.com/blizzardzheng/WebIDE-Plugin-Env.git",
+    "codingSDK": "ssh://git@github.com/blizzardzheng/WebIDE-Plugin-SDK.git",
     "cors": "^2.8.1",
-    "express": "^4.14.0",
     "fs-promise": "^1.0.0",
     "nodemon": "^1.11.0",
-    "react-redux": "^4.4.6",
-    "redux": "^3.6.0",
-    "redux-actions": "^1.1.0",
-    "redux-thunk": "^2.1.0",
     "rimraf": "^2.6.1",
-    "socket.io": "^1.7.3",
-    "style-loader": "^0.13.2"
+    "style-loader": "^0.13.2",
+    "webpack": "^2.2.1",
+    "webpack-cleanup-plugin": "^0.4.1"
   },
   "engines": {
     "npm": "^3.0.0"

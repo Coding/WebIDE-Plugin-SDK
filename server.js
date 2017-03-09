@@ -23,7 +23,7 @@ const corsOptions = {
   optionsSuccessStatus: 200,
   credentials: true,
 };
-const codingPackage = require('./package.json').codingIdePackage;
+const codingPackage = require('../../package.json').codingIdePackage;
 
 
 app.use(cors(corsOptions));

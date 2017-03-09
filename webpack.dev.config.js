@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 
 // const srcRoot = 
-const name = require('./package.json').codingIdePackage.name;
+const name = require('../../package.json').codingIdePackage.name;
 console.log('name');
 
 module.exports = {

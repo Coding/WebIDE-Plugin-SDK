@@ -3,13 +3,12 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 
-const config = require('codingPlugin/package.json');
-
+const config = require('codingIdePlugin/package.json');
 const version = config.codingIdePackage.version || config.version;
 
 
 module.exports = {
-  entry: './node_modules/codingPlugin/src',
+  entry: './node_modules/codingIdePlugin/src',
   output: {
     path: path.join(__dirname, 'dist', version),
     filename: 'index.js',

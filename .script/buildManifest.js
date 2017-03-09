@@ -1,9 +1,9 @@
 const fs = require('fs');
-const config = require('../package.json');
+const config = require('codingPlugin/package.json');
 const version = config.codingIdePackage.version || config.version
 const newPackage = {};
 
-const keyValue = ['name', 'version', 'description', 'author']
+const keyValue = ['name', 'version', 'description', 'author', 'displayName']
 
 newPackage.meta = keyValue.reduce((p, v) => {
     p[v] = config.codingIdePackage[v] || config[v] || ''

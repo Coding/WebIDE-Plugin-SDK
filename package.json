@@ -55,7 +55,7 @@
   "dependencies": {
     "babel-preset-env": "^1.1.8",
     "babel-runtime": "^6.11.6",
-    "codingIdePlugin": "ssh://git@github.com/blizzardzheng/WebIDE-Plugin-Env.git",
+    "codingIdePlugin": "ssh://git@github.com/Coding/WebIDE-Plugin-Env.git",
     "codingSDK": "ssh://git@github.com/blizzardzheng/WebIDE-Plugin-SDK.git",
     "cors": "^2.8.1",
     "fs-promise": "^1.0.0",

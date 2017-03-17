@@ -13,7 +13,7 @@
     "dev": "NODE_ENV=development nodemon --watch package.json --watch server.js --exec babel-node server.js",
     "build": "yarn run clean && NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors && yarn run generateManifest",
     "generateManifest": "babel-node .script/buildManifest.js",
-    "prebuild": "sh .script/getPackage.sh"
+    "prebuild": "yarn && sh .script/getPackage.sh"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
@@ -55,8 +55,6 @@
   "dependencies": {
     "babel-preset-env": "^1.1.8",
     "babel-runtime": "^6.11.6",
-    "codingIdePlugin": "ssh://git@github.com/Coding/WebIDE-Plugin-Env.git",
-    "codingSDK": "ssh://git@github.com/blizzardzheng/WebIDE-Plugin-SDK.git",
     "cors": "^2.8.1",
     "fs-promise": "^1.0.0",
     "nodemon": "^1.11.0",

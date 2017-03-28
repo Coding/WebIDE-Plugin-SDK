@@ -3,15 +3,11 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 
-// const srcRoot = 
-const name = require('../../package.json').codingIdePackage.name;
-console.log('name');
-
 module.exports = {
   entry: './src',
   output: {
     path: path.join(__dirname, 'dist', ''),
-    filename: `${name}.js`,
+    filename: 'index.js',
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],

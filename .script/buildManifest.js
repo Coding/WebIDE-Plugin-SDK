@@ -1,16 +1,10 @@
+console.log("start generate manifest")
 const fs = require('fs');
-const config = require('codingIdePlugin/package.json');
-const version = config.codingIdePackage.version || config.version
-const newPackage = {};
+const packageConfig = require('codingIdePlugin/package.json');
+const mapPackage = require('./mapPackage');
 
-const keyValue = ['name', 'version', 'description', 'author', 'displayName']
-
-newPackage.meta = keyValue.reduce((p, v) => {
-    p[v] = config.codingIdePackage[v] || config[v] || ''
-    return p
-}, {})
-
-newPackage.codingIdePackage = { ...config.codingIdePackage, ...newPackage.meta }
+const version = packageConfig.codingIdePackage.version || packageConfig.version
+const newPackage = mapPackage(packageConfig)
 fs.writeFile(`dist/${version}/manifest.json`, JSON.stringify(newPackage, null, 4), 
 function(err) {
     if(err) {

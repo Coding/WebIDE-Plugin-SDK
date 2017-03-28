@@ -7,10 +7,16 @@ const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 const webpackConfig = require('./webpack.dev.config');
 const compiler = require('webpack')(webpackConfig);
+const mapPackage = require('./.script/mapPackage');
 
+const packagePath = `${process.env.PLUGIN}/package.json` ||
+ '../../package.json';
+
+const codingIdePackage = require(packagePath);
+const mappedPackage = mapPackage(codingIdePackage);
 
 io.on('connection', (socket) => {
-  console.log('hotreload socket server started ,connectid' + socket.id);
+  console.log(`hotreload socket server started ,connected id ${socket.id}`);
   socket.on('change', () => {
     socket.broadcast.emit('onchange');
   });
@@ -23,7 +29,7 @@ const corsOptions = {
   optionsSuccessStatus: 200,
   credentials: true,
 };
-const codingPackage = require('../../package.json').codingIdePackage;
+const codingPackage = mappedPackage.codingIdePackage;
 
 
 app.use(cors(corsOptions));
@@ -44,16 +50,26 @@ app.get('/', (req, res) => {
 
 
 app.get('/packages', (req, res) => {
-  res.json({ [codingPackage.name]: codingPackage });
+  res.json([{
+    author: codingPackage.author || '',
+    description: codingPackage.description,
+    displayName: codingPackage.displayName,
+    enabled: true,
+    id: 0,
+    name: codingPackage.name,
+    requirement: 'Required',
+    status: 'Available',
+    version: codingPackage.version,
+  }]);
 });
 
-app.get('/packages/:pkgId', (req, res) => {
-  res.json(codingPackage);
+app.get('/packages/:pkgName/:version/manifest.json', (req, res) => {
+  res.json(mappedPackage);
 });
 
 const webpackDevInstance = require('webpack-dev-middleware')(compiler, {
-  publicPath: '/static',
-  headers: { "Access-Control-Allow-Origin": "http://localhost:8060" },
+  publicPath: `/packages/${codingPackage.name}/${codingPackage.version}`,
+  headers: { 'Access-Control-Allow-Origin': 'http://localhost:8060' },
   historyApiFallback: true,
   quiet: false,
   noInfo: false,
@@ -79,7 +95,7 @@ compiler.watch({}, (err) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`plugin script folder served at localhost:${PORT}/static/`);
+  console.log(`plugin script folder served at /packages/${codingPackage.name}/${codingPackage.version}`);
   console.log(`plugin list api served at localhost:${PORT}/packages`);
 });
 

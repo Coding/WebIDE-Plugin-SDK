@@ -50,6 +50,10 @@ export default class {
       }
     });
   }
+  get injectComponent() {
+    return this.sdk.injectComponent;
+  }
+
   get request() {
     return this.sdk.utils.request;
   }

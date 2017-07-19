@@ -1,9 +1,9 @@
 {
   "name": "WebIDE-Plugin-SDK",
-  "version": "0.0.1-alpha.04",
+  "version": "0.0.1-alpha.05",
   "description": "WebIDE-Plugin-Env for Coding WebIDE",
   "repository": {
-    "url": "https://github.com/blizzardzheng/WebIDE-Plugin-SDK.git"
+    "url": "git@github.com:Coding/WebIDE-Plugin-SDK.git"
   },
   "license": "ISC",
   "author": "candy <candy.zhengxq@gmail.com>",

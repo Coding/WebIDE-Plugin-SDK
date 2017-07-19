@@ -1,11 +1,14 @@
 ## WebIDE-Plugin-SDK
  - build your plugin
  - offer sdk apis for coding webide plugins
- - dev your apps with hotreload
+ - dev your apps with remote hotReload
   
-## dev with main project
+## dev plugin with main project
 config PACKAGE_SERVER env when running main project
 run yarn run dev in main project
+
+## dev sdk with plugin
+link the project to the plugin node modules
 
 ## build
 you can use this sdk to build the plugin to required format
@@ -27,4 +30,4 @@ main
 - [ ] improve basic sdks
 - [ ] build in local env
 - [ ] readme
-
+- [ ] tests

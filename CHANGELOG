@@ -1,0 +1,23 @@
+---
+order: 2
+title: 更新日志
+toc: false
+timeline: true
+---
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
+
+
+## 0.0.1-alpha.05
+FIXED: 
+- 修复 收藏 人数多了之后样式显示问题
+- 修复 paginate 前进后退 浏览器 histoty 的问题
+- 修复 服务器时间与本地时间不一致的问题，服务端隐藏时间
+
+## 0.0.1
+
+### Main
+ADDED: 增加基础的sdk与编译逻辑

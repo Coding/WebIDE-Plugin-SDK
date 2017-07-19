@@ -5,7 +5,9 @@ if [ ${PLUGIN} ]; then
         then
         echo "===git status===="
         git -C node_modules/codingIdePlugin status
-        echo "===git pull===="        
+        echo "===git reset===="  
+        git reset --hard              
+        echo "===git pull===="
         git -C node_modules/codingIdePlugin pull
         else
         echo "===git clone===="

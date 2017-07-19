@@ -6,7 +6,7 @@ if [ ${PLUGIN} ]; then
         echo "===git status===="
         git -C node_modules/codingIdePlugin status
         echo "===git pull===="        
-        git -C node_modules/codingIdePlugin pull --strategy-option theirs
+        git -C node_modules/codingIdePlugin pull
         else
         echo "===git clone===="
         git clone ${PLUGIN} node_modules/codingIdePlugin

@@ -5,7 +5,7 @@ const mapPackage = (config) => {
     p[v] = config.codingIdePackage[v] || config[v] || ''
     return p
     }, {})
-    newPackage.codingIdePackage = { ...config.codingIdePackage, ...newPackage.meta }
+    newPackage.codingIdePackage = Object.assign(config.codingIdePackage, newPackage.meta)    
     return newPackage
 }
 

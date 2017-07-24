@@ -1,6 +1,6 @@
 {
   "name": "WebIDE-Plugin-SDK",
-  "version": "0.0.1-alpha.07",
+  "version": "0.0.1-alpha.10",
   "description": "WebIDE-Plugin-Env for Coding WebIDE",
   "repository": {
     "url": "git@github.com:Coding/WebIDE-Plugin-SDK.git"
@@ -35,7 +35,6 @@
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "git-url-parse": "^6.0.1",
-    "immutable": "^3.8.1",
     "jsdom": "^9.5.0",
     "mocha": "^3.0.2",
     "react": "^15.3.2",

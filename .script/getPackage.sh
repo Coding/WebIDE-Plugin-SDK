@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 if [ ${PLUGIN} ]; then
     echo "pluginUrl:"${PLUGIN}
-<<<<<<< Updated upstream
-=======
     echo "pluginDir: node_modules/codingIdePlugin/${PLUGIN}"
->>>>>>> Stashed changes
     echo "===remove origin===="    
     if [ -d "node_modules/codingIdePlugin" ]; then
         rm -rf node_modules/codingIdePlugin

@@ -1,6 +1,6 @@
 {
   "name": "WebIDE-Plugin-SDK",
-  "version": "0.0.1-alpha.11",
+  "version": "0.1.0-alpha.01",
   "description": "WebIDE-Plugin-Env for Coding WebIDE",
   "repository": {
     "url": "git@github.com:Coding/WebIDE-Plugin-SDK.git"
@@ -37,9 +37,6 @@
     "git-url-parse": "^6.0.1",
     "jsdom": "^9.5.0",
     "mocha": "^3.0.2",
-    "react": "^15.3.2",
-    "react-addons-test-utils": "^15.3.2",
-    "react-dom": "^15.3.2",
     "sinon": "^1.17.6",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.5.0",

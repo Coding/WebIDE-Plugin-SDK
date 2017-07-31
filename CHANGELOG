@@ -10,6 +10,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.0-alpha.01
+REMOVE:
+- 去除 redux 内嵌支持
+- 提供 modules 运行时加载所需要的基础类库
+
 ## 0.0.1-alpha.10
 ADD:
 - 增加 i18n 支持

@@ -9,12 +9,12 @@ const buildEntryFromEnv = process.env.PACKAGE_DIR;
 if (buildEntryFromEnv) {
   console.log(`get package from ${buildEntryFromEnv}`)
 }
-const config = require(buildEntryFromEnv || 'codingIdePlugin/package.json');
+const config = require(buildEntryFromEnv ? `${buildEntryFromEnv}/package.json` : 'codingIdePlugin/package.json');
 
 const version = config.codingIdePackage.version || config.version;
 
 module.exports = {
-  entry: buildEntryFromEnv || './node_modules/codingIdePlugin/src',
+  entry: buildEntryFromEnv ? `${buildEntryFromEnv}/src` : './node_modules/codingIdePlugin/src',
   output: {
     path: path.join(__dirname, 'dist', version),
     filename: 'index.js',

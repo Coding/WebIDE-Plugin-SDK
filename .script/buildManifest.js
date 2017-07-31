@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const buildEntryFromEnv = process.env.PACKAGE_DIR;
 
-const packageConfig = require(buildEntryFromEnv || 'codingIdePlugin/package.json');
+const packageConfig = require(buildEntryFromEnv ? `${buildEntryFromEnv}/package.json` : 'codingIdePlugin/package.json');
 const mapPackage = require('./mapPackage');
 
 const version = packageConfig.codingIdePackage.version || packageConfig.version

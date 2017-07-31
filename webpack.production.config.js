@@ -55,5 +55,13 @@ module.exports = {
       allChunks: true,
     }),
   ],
+  externals: [
+    (context, request, callback) => {
+      if (/^app\/.+/.test(request)) {
+        return callback(null, `root ${request.replace(/\//g, '.')}`);
+      }
+      callback();
+    },
+  ],
 };
 

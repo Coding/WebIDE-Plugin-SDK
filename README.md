@@ -31,3 +31,8 @@ main
 - [ ] build in local env
 - [ ] readme
 - [ ] tests
+
+
+## changelog
+
+* [changelog](https://github.com/Coding/WebIDE-Plugin-SDK/blob/develop/CHANGELOG.md)

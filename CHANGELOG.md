@@ -10,6 +10,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.1.0-alpha.01
+ADD:
+- webpack 增加 externals 配置，使得在 api 设计不够完善的时候可以像 import 主项目的元素一样调用 window.app下的文件,对现有方案做一个 fallback
+
 ## 0.0.1-alpha.10
 ADD:
 - 增加 i18n 支持

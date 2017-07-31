@@ -10,6 +10,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.0-alpha.02
+ADD:
+- webpack 增加 externals 配置，使得在 api 设计不够完善的时候可以像 import 主项目的元素一样调用 window.app下的文件,对现有方案做一个 fallback
+
 ## 1.0.0-alpha.01
 REMOVE:
 - 去除 redux 内嵌支持

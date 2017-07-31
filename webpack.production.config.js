@@ -3,12 +3,18 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 
-const config = require('codingIdePlugin/package.json');
+
+const buildEntryFromEnv = process.env.PACKAGE_DIR;
+
+if (buildEntryFromEnv) {
+  console.log(`get package from ${buildEntryFromEnv}`)
+}
+const config = require(buildEntryFromEnv || 'codingIdePlugin/package.json');
+
 const version = config.codingIdePackage.version || config.version;
 
-
 module.exports = {
-  entry: './node_modules/codingIdePlugin/src',
+  entry: buildEntryFromEnv || './node_modules/codingIdePlugin/src',
   output: {
     path: path.join(__dirname, 'dist', version),
     filename: 'index.js',

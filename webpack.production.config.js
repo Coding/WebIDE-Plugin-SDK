@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
-
+const merge = require('webpack-merge');
 
 const buildEntryFromEnv = process.env.PACKAGE_DIR;
 
@@ -13,7 +13,7 @@ const config = require(buildEntryFromEnv ? `${buildEntryFromEnv}/package.json` :
 
 const version = config.codingIdePackage.version || config.version;
 
-module.exports = {
+const defaultConfig = {
   entry: buildEntryFromEnv ? `${buildEntryFromEnv}/src` : './node_modules/codingIdePlugin/src',
   output: {
     path: path.join(__dirname, 'dist', version),
@@ -63,11 +63,37 @@ module.exports = {
   ],
   externals: [
     (context, request, callback) => {
-      if (/^app\/.+/.test(request)) {
-        return callback(null, `root ${request.replace(/\//g, '.')}`);
+      if (request === 'react') request = 'lib/react'
+      if (/^app\/.+/.test(request) || /^lib\/.+/.test(request)) {
+        const newRequest = request
+          .replace(/\//g, '.')
+          .replace(/-(.)/g, (__, m) => m.toUpperCase());
+        return callback(null, `root ${newRequest}`);
       }
       callback();
     },
   ],
 };
 
+let userConfig = {};
+try {
+  userConfig = require(`${process.env.PLUGIN}/config/webpack.production.config.js`);
+} catch (err) {
+  console.log(err);
+}
+
+const protectedProps = [
+  'entry',
+  'output',
+  'resolve',
+  'resolveLoader',
+];
+
+const merged = merge({
+  customizeObject: (a, b, key) => {
+    if (protectedProps.includes(key)) return a;
+    return undefined;
+  }
+})(defaultConfig, userConfig);
+
+module.exports = merged;

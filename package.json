@@ -1,7 +1,7 @@
 {
   "name": "codingSDK",
-  "version": "0.1.0-alpha.01",
-  "description": "WebIDE-Plugin-Env for Coding WebIDE",
+  "version": "1.0.0-alpha.04",
+  "description": "WebIDE-Plugin-SDK for Coding WebIDE",
   "repository": {
     "url": "git@github.com:Coding/WebIDE-Plugin-SDK.git"
   },

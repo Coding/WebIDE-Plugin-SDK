@@ -10,6 +10,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.0-alpha.04
+ADD:
+- 用户插件根目录下的 `config/webpack.dev.config.js` 以及 `config/webpack.production.config.js` 会被 merge 进 SDK 内的主配置里
+
 ## 1.0.0-alpha.03
 ADD:
 - 增加从环境变量获取插件并编译方法
@@ -41,7 +45,7 @@ FIXED:
 - 修改 fetchPackage 的 git pull后参数
 
 ## 0.0.1-alpha.06
-FIXED: 
+FIXED:
 - 修改 mapPackage
 
 ## 0.0.1-alpha.05

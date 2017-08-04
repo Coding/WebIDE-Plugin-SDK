@@ -10,6 +10,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.1.0-alpha.01
+ADD:
+- 增加 Manager 生命周期继承类，提供默认的空实现
+
+
 ## 1.0.0-alpha.04
 ADD:
 - 用户插件根目录下的 `config/webpack.dev.config.js` 以及 `config/webpack.production.config.js` 会被 merge 进 SDK 内的主配置里

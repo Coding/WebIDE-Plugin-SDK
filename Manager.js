@@ -1,5 +1,3 @@
-import { mobx } from './modules';
-
 export default class {
   pluginWillMount() {
 

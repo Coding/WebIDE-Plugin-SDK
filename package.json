@@ -1,7 +1,7 @@
 {
-  "name": "WebIDE-Plugin-SDK",
-  "version": "0.0.1-alpha.11",
-  "description": "WebIDE-Plugin-Env for Coding WebIDE",
+  "name": "codingSDK",
+  "version": "0.1.1",
+  "description": "WebIDE-Plugin-SDK for Coding WebIDE",
   "repository": {
     "url": "git@github.com:Coding/WebIDE-Plugin-SDK.git"
   },
@@ -12,8 +12,14 @@
     "clean": "rimraf dist",
     "dev": "NODE_ENV=development nodemon --watch package.json --watch server.js --exec babel-node server.js",
     "build": "yarn run clean && NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors && yarn run generateManifest",
+<<<<<<< HEAD
     "generateManifest": "babel-node .script/buildManifest.js",
     "prebuild": "yarn && sh .script/getPackage.sh"
+=======
+    "prebuild": "yarn && sh .script/prebuild.sh",
+    "generateManifest": "node .script/buildManifest.js",
+    "getPackage": "yarn && sh .script/getPackage.sh"
+>>>>>>> f731b09... 增加 Manager 生命周期继承类，提供默认的空实现
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",

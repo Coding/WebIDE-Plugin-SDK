@@ -60,6 +60,7 @@ app.get('/packages', (req, res) => {
     requirement: 'Required',
     status: 'Available',
     version: codingPackage.version,
+    loadType: codingPackage.loadType,
   }]);
 });
 

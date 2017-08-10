@@ -5,13 +5,12 @@ const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const merge = require('webpack-merge');
 
 const buildEntryFromEnv = process.env.PACKAGE_DIR;
-
 if (buildEntryFromEnv) {
   console.log(`get package from ${buildEntryFromEnv}`)
 }
 const config = require(buildEntryFromEnv ? `${buildEntryFromEnv}/package.json` : 'codingIdePlugin/package.json');
 
-const version = config.codingIdePackage.version || config.version;
+const version = process.env.VERSION || config.codingIdePackage.version || config.version;
 
 const defaultConfig = {
   entry: buildEntryFromEnv ? `${buildEntryFromEnv}/src` : './node_modules/codingIdePlugin/src',
@@ -79,7 +78,7 @@ let userConfig = {};
 try {
   userConfig = require(`${process.env.PLUGIN}/config/webpack.production.config.js`);
 } catch (err) {
-  console.log(err);
+  console.log('no user config' + err);
 }
 
 const protectedProps = [

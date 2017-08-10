@@ -10,6 +10,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.1.0-alpha.04
+ADD:
+- 插件 dev socket 支持传递插件信息区分package
+- 插件 更新编译方法，插件更新sdk形式
+- 增加 socket data区分
+- 增加自 link 脚本
+
+## 1.1.0-alpha.03
+ADD:
+- 插件 dev socket 支持传递插件信息区分package
+- 插件
+
+
 ## 1.1.0-alpha.01
 ADD:
 - 增加 Manager 生命周期继承类，提供默认的空实现

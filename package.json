@@ -1,6 +1,6 @@
 {
   "name": "WebIDE-Plugin-SDK",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "WebIDE-Plugin-SDK for Coding WebIDE",
   "repository": {
     "url": "git@github.com:Coding/WebIDE-Plugin-SDK.git"
@@ -12,13 +12,7 @@
     "coding-ide": "bin/codingIde.js"
   },
   "scripts": {
-    "clean": "rimraf dist/**",
-    "dev": "NODE_ENV=development nodemon --watch package.json --watch server.js --exec babel-node server.js",
-    "prebuild": "yarn && sh .script/prebuild.sh",
-    "generateManifest": "node .script/buildManifest.js",
-    "getPackage": "yarn && sh .script/getPackage.sh",
-    "linkSDK": "ln -s $(pwd) ${PROJECT}/node_modules/coding-webide-sdk",
-    "server": "node server.prod.js"
+    "linkSDK": "ln -s $(pwd) ${PROJECT}/node_modules/coding-webide-sdk"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",

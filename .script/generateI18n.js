@@ -1,22 +1,22 @@
 const fs = require('fs')
 const fromJS = require('immutable').fromJS
-
-const root_path = process.argv[2] || 'app'
-const i18nTargetRoot = process.env.I18nTargetRoot || 'app/i18n'
-
 const i18nRegex = /(?:i18n`(.+?):=)(.+?)(?:`)/gm
 const i18nRegexPer = /(?:i18n`(.+?):=)(.+?)(?:`)/
-
-console.log('search i18n shape in folder : ' + root_path)
-
-// 要使用此工具需保证 i18目录里有 index.json shape ['en_US', 'zh_CN'] 告知当前的语言库
-const i18nFolders = require(`${i18nTargetRoot}/index.json`)
-console.log('found folders  ' + i18nFolders)
-
 
 // 遍历读取所有的js和jsx文件,当看到有文件内容有特征内容，则替换内容，并且过程中 有一个side effect 在指定的目录生成json文件
 
 function generateI18n(root) {
+    const root_path = process.argv[2] || 'app'
+    const i18nTargetRoot = process.env.I18nTargetRoot || 'app/i18n'
+
+
+
+    console.log('search i18n shape in folder : ' + root_path)
+
+    // 要使用此工具需保证 i18目录里有 index.json shape ['en_US', 'zh_CN'] 告知当前的语言库
+    const i18nFolders = require(`${i18nTargetRoot}/index.json`)
+    console.log('found folders  ' + i18nFolders)
+
     const files = fs.readdirSync(root);
     files.forEach(file => {
          var pathname = root+'/'+file
@@ -41,6 +41,8 @@ function generateI18n(root) {
 }
 
 function generate(matchable) {
+    const i18nTargetRoot = process.env.I18nTargetRoot || 'app/i18n'
+    const i18nFolders = require(`${i18nTargetRoot}/index.json`)    
     const perMatchableArray = matchable.match(i18nRegexPer)
     const fileKey = perMatchableArray[1].split('$')[0]
     const value = perMatchableArray[2]
@@ -67,4 +69,4 @@ function generate(matchable) {
     return matchable.replace(/:=.+/, '`');
 }
 
-generateI18n(root_path)
+module.exports = generateI18n

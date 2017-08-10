@@ -2,13 +2,11 @@ console.log("start generate manifest")
 const fs = require('fs');
 
 const buildEntryFromEnv = process.env.PACKAGE_DIR;
-console.log(process.env.VERSION)
 const VERSION = process.env.VERSION
 
-const packageConfig = require(buildEntryFromEnv ? `${buildEntryFromEnv}/package.json` : 'codingIdePlugin/package.json');
+const packageConfig = require(`${buildEntryFromEnv}/package.json`);
 const mapPackage = require('./mapPackage');
 
-console.log('VERSION', VERSION)
 packageConfig.codingIdePackage.version = VERSION || packageConfig.codingIdePackage.version || packageConfig.version
 const version = packageConfig.codingIdePackage.version
 const newPackage = mapPackage(packageConfig)

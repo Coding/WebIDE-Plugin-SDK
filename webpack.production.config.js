@@ -16,7 +16,7 @@ const version = process.env.VERSION || config.codingIdePackage.version || config
 module.exports = {
   entry: './node_modules/codingIdePlugin/src',
   output: {
-    path: path.join(__dirname, 'dist', version),
+    path: path.join(buildEntryFromEnv, 'dist', version),
     filename: 'index.js',
   },
   resolve: {

@@ -8,7 +8,7 @@ const VERSION = process.env.VERSION
 const packageConfig = require(buildEntryFromEnv ? `${buildEntryFromEnv}/package.json` : 'codingIdePlugin/package.json');
 const mapPackage = require('./mapPackage');
 
-
+console.log('VERSION', VERSION)
 packageConfig.codingIdePackage.version = VERSION || packageConfig.codingIdePackage.version || packageConfig.version
 const version = packageConfig.codingIdePackage.version
 const newPackage = mapPackage(packageConfig)

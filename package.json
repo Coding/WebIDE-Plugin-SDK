@@ -1,6 +1,6 @@
 {
   "name": "codingSDK",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "WebIDE-Plugin-SDK for Coding WebIDE",
   "repository": {
     "url": "git@github.com:Coding/WebIDE-Plugin-SDK.git"
@@ -8,13 +8,18 @@
   "license": "ISC",
   "author": "candy <candy.zhengxq@gmail.com>",
   "main": "server.js",
+  "bin": {
+    "codingIde": ".script/build.sh"
+  },
   "scripts": {
     "clean": "rimraf dist",
     "dev": "NODE_ENV=development nodemon --watch package.json --watch server.js --exec babel-node server.js",
     "build": "yarn run clean && NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors && yarn run generateManifest",
     "prebuild": "yarn && sh .script/prebuild.sh",
     "generateManifest": "node .script/buildManifest.js",
-    "getPackage": "yarn && sh .script/getPackage.sh"
+    "getPackage": "yarn && sh .script/getPackage.sh",
+    "linkSDK": "ln -s $(pwd) ${PROJECT}/node_modules/codingSDK",
+    "server": "node server.prod.js"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",

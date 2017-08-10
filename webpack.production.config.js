@@ -2,9 +2,15 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+const merge = require('webpack-merge');
 
-const config = require('codingIdePlugin/package.json');
-const version = config.codingIdePackage.version || config.version;
+const buildEntryFromEnv = process.env.PACKAGE_DIR;
+if (buildEntryFromEnv) {
+  console.log(`get package from ${buildEntryFromEnv}`)
+}
+const config = require(buildEntryFromEnv ? `${buildEntryFromEnv}/package.json` : 'codingIdePlugin/package.json');
+
+const version = process.env.VERSION || config.codingIdePackage.version || config.version;
 
 
 module.exports = {
@@ -65,3 +71,25 @@ module.exports = {
   ],
 };
 
+let userConfig = {};
+try {
+  userConfig = require(`${process.env.PLUGIN}/config/webpack.production.config.js`);
+} catch (err) {
+  console.log('no user config' + err);
+}
+
+const protectedProps = [
+  'entry',
+  'output',
+  'resolve',
+  'resolveLoader',
+];
+
+const merged = merge({
+  customizeObject: (a, b, key) => {
+    if (protectedProps.includes(key)) return a;
+    return undefined;
+  }
+})(defaultConfig, userConfig);
+
+module.exports = merged;

@@ -10,6 +10,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.1.2
+ADD:
+- 升级编译工具
+
 ## 0.1.1
 ADD:
  - 增加 Manager 生命周期继承类，提供默认的空实现

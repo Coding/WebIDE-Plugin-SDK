@@ -1,6 +1,6 @@
 {
-  "name": "codingSDK",
-  "version": "1.1.0-alpha.04",
+  "name": "WebIDE-Plugin-SDK",
+  "version": "1.1.1",
   "description": "WebIDE-Plugin-SDK for Coding WebIDE",
   "repository": {
     "url": "git@github.com:Coding/WebIDE-Plugin-SDK.git"
@@ -9,16 +9,15 @@
   "author": "candy <candy.zhengxq@gmail.com>",
   "main": "server.js",
   "bin": {
-    "codingIde": ".script/build.sh"
+    "coding-ide": ".bin/codingIde.js"
   },
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf dist/**",
     "dev": "NODE_ENV=development nodemon --watch package.json --watch server.js --exec babel-node server.js",
-    "build": "yarn run clean && NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors && yarn run generateManifest",
     "prebuild": "yarn && sh .script/prebuild.sh",
     "generateManifest": "node .script/buildManifest.js",
     "getPackage": "yarn && sh .script/getPackage.sh",
-    "linkSDK": "ln -s $(pwd) ${PROJECT}/node_modules/codingSDK",
+    "linkSDK": "ln -s $(pwd) ${PROJECT}/node_modules/coding-webide-sdk",
     "server": "node server.prod.js"
   },
   "devDependencies": {
@@ -61,6 +60,7 @@
     "babel-runtime": "^6.11.6",
     "body-parser": "^1.17.2",
     "cors": "^2.8.1",
+    "cross-env": "^5.0.5",
     "fs-promise": "^1.0.0",
     "nodemon": "^1.11.0",
     "rimraf": "^2.6.1",

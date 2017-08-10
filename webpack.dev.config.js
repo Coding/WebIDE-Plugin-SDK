@@ -64,7 +64,7 @@ const defaultConfig = {
 
 let userConfig = {};
 try {
-  userConfig = require(`${process.env.PLUGIN}/config/webpack.dev.config.js`);
+  userConfig = require(`${process.env.PACKAGE_DIR}/config/webpack.dev.config.js`);
 } catch (err) {
   console.log(err);
 }

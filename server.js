@@ -9,7 +9,7 @@ const webpackConfig = require('./webpack.dev.config');
 const compiler = require('webpack')(webpackConfig);
 const mapPackage = require('./.script/mapPackage');
 
-const packagePath = `${process.env.PLUGIN}/package.json` ||
+const packagePath = `${process.env.PACKAGE_DIR}/package.json` ||
  '../../package.json';
 
 const codingIdePackage = require(packagePath);

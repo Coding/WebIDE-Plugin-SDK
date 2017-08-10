@@ -6,7 +6,7 @@ const merge = require('webpack-merge');
 
 const buildEntryFromEnv = process.env.PACKAGE_DIR;
 if (buildEntryFromEnv) {
-  console.log(`get package from ${buildEntryFromEnv}`)
+  console.log(`get package from ${buildEntryFromEnv}`);
 }
 const config = require(buildEntryFromEnv ? `${buildEntryFromEnv}/package.json` : 'codingIdePlugin/package.json');
 
@@ -76,7 +76,7 @@ const defaultConfig = {
 
 let userConfig = {};
 try {
-  userConfig = require(`${process.env.PLUGIN}/config/webpack.production.config.js`);
+  userConfig = require(`${buildEntryFromEnv}/config/webpack.production.config.js`);
 } catch (err) {
   console.log('no user config' + err);
 }

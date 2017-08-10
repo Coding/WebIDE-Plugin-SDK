@@ -9,7 +9,7 @@
   "author": "candy <candy.zhengxq@gmail.com>",
   "main": "server.js",
   "bin": {
-    "coding-ide": ".bin/codingIde.js"
+    "coding-ide": "bin/codingIde.js"
   },
   "scripts": {
     "clean": "rimraf dist/**",

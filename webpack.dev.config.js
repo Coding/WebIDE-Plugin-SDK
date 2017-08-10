@@ -56,3 +56,26 @@ module.exports = {
     },
   ],
 };
+
+let userConfig = {};
+try {
+  userConfig = require(`${process.env.PACKAGE_DIR}/config/webpack.dev.config.js`);
+} catch (err) {
+  console.log(err);
+}
+
+const protectedProps = [
+  'entry',
+  'output',
+  'resolve',
+  'resolveLoader',
+];
+
+const merged = merge({
+  customizeObject: (a, b, key) => {
+    if (protectedProps.includes(key)) return a;
+    return undefined;
+  }
+})(defaultConfig, userConfig);
+
+module.exports = merged;

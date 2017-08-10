@@ -12,7 +12,7 @@ link the project to the plugin node modules
 
 ## build
 you can use this sdk to build the plugin to required format
-```PLUGIN=ssh://XXX.git yarn run build```
+```PACKAGE_DIR=ssh://XXX.git yarn run build```
 output to the ./dist
 ```
 main

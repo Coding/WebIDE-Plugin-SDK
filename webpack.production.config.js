@@ -12,9 +12,8 @@ const config = require(buildEntryFromEnv ? `${buildEntryFromEnv}/package.json` :
 
 const version = process.env.VERSION || config.codingIdePackage.version || config.version;
 
-
-module.exports = {
-  entry: './node_modules/codingIdePlugin/src',
+const defaultConfig = {
+  entry: buildEntryFromEnv ? `${buildEntryFromEnv}/src` : './node_modules/codingIdePlugin/src',
   output: {
     path: path.join(buildEntryFromEnv, 'dist', version),
     filename: 'index.js',
@@ -63,8 +62,12 @@ module.exports = {
   ],
   externals: [
     (context, request, callback) => {
-      if (/^app\/.+/.test(request)) {
-        return callback(null, `root ${request.replace(/\//g, '.')}`);
+      if (request === 'react') request = 'lib/react'
+      if (/^app\/.+/.test(request) || /^lib\/.+/.test(request)) {
+        const newRequest = request
+          .replace(/\//g, '.')
+          .replace(/-(.)/g, (__, m) => m.toUpperCase());
+        return callback(null, `root ${newRequest}`);
       }
       callback();
     },

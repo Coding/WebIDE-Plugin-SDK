@@ -1,12 +1,12 @@
 const express = require('express');
-
+const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const server = require('http').createServer(app);
 const mapPackage = require('./.script/mapPackage');
 
-const packagePath = `./dist/${process.env.VERSION}/manifest.json`;
+const packagePath = path.resolve(process.env.PACKAGE_DIR, `dist/${process.env.VERSION}/manifest.json`);
 const codingIdePackage = require(packagePath);
 const mappedPackage = mapPackage(codingIdePackage);
 const PORT = process.env.PORT || 4000;

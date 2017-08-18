@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const merge = require('webpack-merge');
 
-const generalExtenalAlias = require('./utils/createExternalAlias').default;
+const { generalExtenalAlias } = require('./utils/createExternalAlias');
 
 const defaultConfig = {
   entry: './src',
@@ -83,7 +83,7 @@ const merged = merge({
   customizeObject: (a, b, key) => {
     if (protectedProps.includes(key)) return a;
     return undefined;
-  }
+  },
 })(defaultConfig, userConfig);
 
 module.exports = merged;

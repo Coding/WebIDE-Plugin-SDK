@@ -4,6 +4,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const merge = require('webpack-merge');
 
+const generalExtenalAlias = require('./utils/createExternalAlias').default;
+
 const defaultConfig = {
   entry: './src',
   output: {
@@ -50,7 +52,6 @@ const defaultConfig = {
   ],
   externals: [
     (context, request, callback) => {
-      if (request === 'react') request = 'lib/react'
       if (/^app\/.+/.test(request) || /^lib\/.+/.test(request)) {
         const newRequest = request
           .replace(/\//g, '.')
@@ -59,7 +60,9 @@ const defaultConfig = {
       }
       callback();
     },
+    generalExtenalAlias,
   ],
+
 };
 
 let userConfig = {};

@@ -4,6 +4,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const merge = require('webpack-merge');
 
+const generalExtenalAlias = require('./utils/createExternalAlias').default;
+
 const buildEntryFromEnv = process.env.PACKAGE_DIR;
 if (buildEntryFromEnv) {
   console.log(`get package from ${buildEntryFromEnv}`);
@@ -71,6 +73,7 @@ const defaultConfig = {
       }
       callback();
     },
+    generalExtenalAlias,
   ],
 };
 

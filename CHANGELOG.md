@@ -10,6 +10,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.1.3
+
+ADD:
+- 提供 extenalAlias 与 generalExtenalAlias 支持，一些非常通用的库运行时自动转换
+
+## 1.1.1 - 1.1.2
+FIX:
+- 修改 npm script，更新编译方式
+
 ## 1.1.0-alpha.04
 ADD:
 - 插件 dev socket 支持传递插件信息区分package

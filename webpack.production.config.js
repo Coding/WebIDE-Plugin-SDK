@@ -49,6 +49,7 @@ const defaultConfig = {
       'process.env': {
         NODE_ENV: '"production"',
       },
+      __DEV__: false,
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

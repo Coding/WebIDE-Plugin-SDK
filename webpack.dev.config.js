@@ -44,6 +44,7 @@ const defaultConfig = {
       'process.env': {
         NODE_ENV: '"production"',
       },
+      __DEV__: true,
     }),
     new ExtractTextPlugin({
       disable: false,

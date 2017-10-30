@@ -26,6 +26,9 @@ const defaultConfig = {
       'src/',
       './node_modules',
     ],
+    alias: {
+      home: path.join(process.env.PACKAGE_DIR, 'src'),
+    },
   },
   module: {
     rules: [

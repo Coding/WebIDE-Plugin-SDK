@@ -12,7 +12,7 @@
     "coding-ide": "bin/codingIde.js"
   },
   "scripts": {
-    "linkSDK": "ln -s $(pwd) ${PROJECT}/node_modules/coding-webide-sdk"
+    "linkSDK": "ln -s $(pwd) ${PROJECT}/node_modules/webide-plugin-sdk"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
@@ -55,6 +55,7 @@
     "body-parser": "^1.17.2",
     "cors": "^2.8.1",
     "cross-env": "^5.0.5",
+    "log4js": "^3.0.5",
     "nodemon": "^1.11.0",
     "rimraf": "^2.6.1",
     "socket.io": "^2.0.4",

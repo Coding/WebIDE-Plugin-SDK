@@ -78,6 +78,7 @@ const defaultConfig = {
       callback();
     },
     generalExtenalAlias,
+    'codingide',
   ],
 };
 

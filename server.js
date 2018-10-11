@@ -22,7 +22,7 @@ io.on('connection', (socket) => {
   });
 });
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 65006;
 
 const corsOptions = {
   origin: ['http://localhost:8060','http://ide.test:8060'],

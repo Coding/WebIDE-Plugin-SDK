@@ -6,6 +6,8 @@ const merge = require('webpack-merge');
 
 const { generalExtenalAlias } = require('./utils/createExternalAlias');
 
+const webpackProgressPlugin = require('./webpack.progress.plugin');
+
 const defaultConfig = {
   entry: './src',
   output: {
@@ -53,6 +55,7 @@ const defaultConfig = {
       disable: false,
       allChunks: true,
     }),
+    webpackProgressPlugin,
   ],
   externals: [
     (context, request, callback) => {

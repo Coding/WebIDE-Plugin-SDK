@@ -10,6 +10,7 @@ const mapPackage = require('./.script/mapPackage');
 
 const server = http.createServer(app);
 const io = require('socket.io').listen(server);
+const webpackProgressPlugin = require('./webpack.progress.plugin');
 
 const packagePath = `${process.env.PACKAGE_DIR}/package.json` ||
     '../../package.json';
@@ -21,7 +22,7 @@ const mappedPackage = mapPackage(codingIdePackage);
 const codingPackage = mappedPackage.codingIdePackage;
 let firstread = false
 io.on('connection', (socket) => {
-    
+    webpackProgressPlugin.setSocket(socket);
     console.log(`hotreload socket server started ,connected id ${socket.id}`);
     socket.on('change', () => {
         socket.broadcast.emit('onchange');

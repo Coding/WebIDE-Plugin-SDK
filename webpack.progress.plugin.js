@@ -1,12 +1,13 @@
 const webpack = require('webpack');
 
 class WebpackPackageProgress extends webpack.ProgressPlugin {
-  constructor () {
+  constructor() {
+    super();
     this.socket = null;
     this.instance = null;
     this.handler = (percent, msg, ...details) => {
       this._progressHandler(percent, msg, details);
-    }
+    };
   }
 
   static getInstatnce() {
@@ -16,15 +17,15 @@ class WebpackPackageProgress extends webpack.ProgressPlugin {
     return this.instance;
   }
 
-  _progressHandler = (percent, msg, ...details) => {
+  _progressHandler(percent, msg, ...details) {
     const progress = Math.floor(percent * 100);
     if (this.socket) {
       this.socket.emit('progress', progress);
     }
   }
 
-  setSocket = (socket) => {
-    this.socket = socket
+  setSocket(socket) {
+    this.socket = socket;
   }
 }
 

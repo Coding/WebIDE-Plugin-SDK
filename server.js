@@ -19,6 +19,7 @@ const codingIdePackage = require(packagePath);
 
 const mappedPackage = mapPackage(codingIdePackage);
 const codingPackage = mappedPackage.codingIdePackage;
+let firstread = false
 io.on('connection', (socket) => {
     
     console.log(`hotreload socket server started ,connected id ${socket.id}`);
@@ -27,12 +28,15 @@ io.on('connection', (socket) => {
     });
 
     socket.on('readfile', ({ name, version }) => {
-        console.log(`receive readfile request: ${codingPackage.name}${codingPackage.version}-index.js`);
-        readfile()
-            .then((script) => socket.emit('hmrfile', { codingPackage, script }));
+        if (firstread) {
+            console.log(`receive readfile request: ${codingPackage.name}${codingPackage.version}-index.js`);
+            readfile()
+                .then((script) => socket.emit('hmrfile', { codingPackage, script }));
+        }
     })
 
     socket.once('firstread', () => {
+        firstread = true
         readfile()
             .then((script) => socket.emit('firstsend', { codingPackage, script }));
     })

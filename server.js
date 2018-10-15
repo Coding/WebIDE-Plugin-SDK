@@ -10,9 +10,12 @@ const mapPackage = require('./.script/mapPackage');
 
 const server = http.createServer(app);
 const io = require('socket.io').listen(server);
-const codingIdePackage = require(packagePath);
+
 const packagePath = `${process.env.PACKAGE_DIR}/package.json` ||
     '../../package.json';
+
+const codingIdePackage = require(packagePath);
+
 
 const mappedPackage = mapPackage(codingIdePackage);
 const codingPackage = mappedPackage.codingIdePackage;

@@ -17,10 +17,10 @@ class WebpackPackageProgress extends webpack.ProgressPlugin {
     return this.instance;
   }
 
-  _progressHandler(percent, msg, ...details) {
+  _progressHandler(percent, msg, details) {
     const progress = Math.floor(percent * 100);
     if (this.socket) {
-      this.socket.emit('progress', progress);
+      this.socket.emit('progress', { progress, msg, details });
     }
   }
 

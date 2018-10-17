@@ -90,10 +90,12 @@ app.use(webpackDevInstance);
 io.on('connection', (socket) => {
   webpackProgressPlugin.setSocket(socket);
 
+  let initialize = false;
   readfile().then((script) => {
     socket.emit('hmrfile', { codingPackage, script });
     compiler.watch({}, (err) => {
       if (!err) {
+        initialize = true;
         logger.info('send reload command to frontend');
         io.emit('change', mappedPackage);
       }
@@ -105,8 +107,10 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('onchange');
   });
 
-  socket.once('readfile', () => {
-    readfile().then(script => socket.emit('hmrfile', { codingPackage, script }));
+  socket.on('readfile', () => {
+    if (initialize) {
+      readfile().then(script => socket.emit('hmrfile', { codingPackage, script }));
+    }
   });
 });
 

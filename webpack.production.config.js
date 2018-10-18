@@ -92,7 +92,7 @@ try {
 const protectedProps = [
   'entry',
   'output',
-  'resolve',
+  // 'resolve',
   'resolveLoader',
 ];
 

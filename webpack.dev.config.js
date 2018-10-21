@@ -3,6 +3,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const merge = require('webpack-merge');
+const WebpackBar = require('webpackbar');
 
 const { generalExtenalAlias } = require('./utils/createExternalAlias');
 
@@ -56,6 +57,12 @@ const defaultConfig = {
       allChunks: true,
     }),
     webpackProgressPlugin,
+    new WebpackBar({
+      name: 'cloudstudio-plugin-sdk',
+      done: () => {
+        console.log('Build Success.');
+      }
+    }),
   ],
   externals: [
     (context, request, callback) => {

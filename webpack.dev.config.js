@@ -59,9 +59,6 @@ const defaultConfig = {
     webpackProgressPlugin,
     new WebpackBar({
       name: 'cloudstudio-plugin-sdk',
-      done: () => {
-        console.log('Build Success.');
-      }
     }),
   ],
   externals: [

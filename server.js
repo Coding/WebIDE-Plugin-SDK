@@ -117,7 +117,7 @@ io.on('connection', (socket) => {
 function readfile() {
   return new Promise((resolve, reject) => {
     http.get(
-      `http://127.0.0.1:65000/packages/${codingPackage.name}/${codingPackage.version}/index.js`,
+      `http://127.0.0.1:${PORT}/packages/${codingPackage.name}/${codingPackage.version}/index.js`,
       (res) => {
         let script = '';
         res.on('data', (data) => {
@@ -133,9 +133,9 @@ function readfile() {
 
 server.listen(PORT, () => {
   logger.info(
-    `plugin script folder served at /packages/${codingPackage.name}/${codingPackage.version}`
+    `Plugin script folder served at /packages/${codingPackage.name}/${codingPackage.version}`
   );
-  logger.info(`plugin list api served at localhost:${PORT}/packages`);
+  logger.info(`Plugin list api served at localhost:${PORT}/packages`);
 });
 
 module.exports = { emitChange: io.emit };

@@ -7,7 +7,7 @@ const parse = require('../lib/parse');
 const log4js = require('log4js');
 // const generateI18n = require('../.script/generateI18n')
 
-const logger = log4js.getLogger('webide-sdk');
+const logger = log4js.getLogger('cloudstudio-sdk');
 logger.level = 'debug';
 
 function execPromise(command, options = {}, callback) {
@@ -22,14 +22,6 @@ function execPromise(command, options = {}, callback) {
     );
   });
 }
-
-// async function i18n() {
-//   process.env.NODE_ENV = 'development';
-//   const PACKAGE_DIR = process.env.PACKAGE_DIR || path.resolve(__dirname, '../../../');
-//   process.env.I18nTargetRoot = process.env.I18nTargetRoot || path.resolve(__dirname, '../../../', 'i18n');
-//   console.log('PACKAGE_DIR', PACKAGE_DIR)
-//   generateI18n(`${PACKAGE_DIR}/src`)
-// }
 
 async function serve() {
   const step = stepFactory();
@@ -108,10 +100,6 @@ if (cli.args[0] === 'start') {
   if (!!cli.args[1] && cli.args[1] !== '') {
     start(cli.args[1]);
   }
-}
-
-if (cli.args[0] === 'i18n') {
-  i18n();
 }
 
 if (cli.args[0] === 'serve') {

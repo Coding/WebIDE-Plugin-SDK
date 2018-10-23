@@ -8,9 +8,7 @@ const WebpackBar = require('webpackbar');
 const { generalExtenalAlias } = require('./utils/createExternalAlias');
 
 const buildEntryFromEnv = process.env.PACKAGE_DIR;
-if (buildEntryFromEnv) {
-  console.log(`get package from ${buildEntryFromEnv}`);
-}
+
 const config = require(buildEntryFromEnv ? `${buildEntryFromEnv}/package.json` : 'codingIdePlugin/package.json');
 
 const version = process.env.VERSION || config.codingIdePackage.version || config.version;
@@ -104,7 +102,7 @@ const merged = merge({
   customizeObject: (a, b, key) => {
     if (protectedProps.includes(key)) return a;
     return undefined;
-  }
+  },
 })(defaultConfig, userConfig);
 
 module.exports = merged;

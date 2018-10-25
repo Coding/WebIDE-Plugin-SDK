@@ -88,6 +88,7 @@ const defaultConfig = {
 let userConfig = {};
 try {
   userConfig = require(`${buildEntryFromEnv}/config/webpack.production.config.js`);
+  console.log('userconfig !!!!');
 } catch (err) {
   console.log('no user config' + err);
 }

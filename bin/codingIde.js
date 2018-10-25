@@ -65,7 +65,7 @@ async function build(packageDir) {
     });
   });
   await step(`[${stepNum++}] build source`, () => {
-    process.env.PACKAGE_DIR = packageDir || process.env.PACKAGE_DIR || path.resolve(__dirname, '../../../');
+    process.env.PACKAGE_DIR = process.env.PACKAGE_DIR || path.resolve(__dirname, '../../../');
     logger.info('current source dir', process.env.PACKAGE_DIR, process.env.VERSION);
     return execPromise(`webpack --config ${path.resolve(__dirname, '../', 'webpack.production.config.js')} --progress --profile --colors`)
     .then((out) => {
@@ -91,9 +91,7 @@ const cli = parse(process.argv);
 
 
 if (cli.args[0] === 'build') {
-  if (!!cli.args[1] && cli.args[1] !== '') {
-    build(cli.args[1]);
-  }
+  build();
 }
 
 if (cli.args[0] === 'start') {

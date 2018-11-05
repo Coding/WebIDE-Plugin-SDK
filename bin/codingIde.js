@@ -74,7 +74,6 @@ async function build(packageDir) {
     })
     .catch((err, stdout, stderr) => {
       logger.error(err.message);
-      console.log(stderr);
       return false;
     });
   });

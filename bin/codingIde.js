@@ -13,9 +13,12 @@ logger.level = 'debug';
 function execPromise(command, options = {}, callback) {
   return new Promise((resolve, reject) => {
     return exec(command, options, function (err, stdout, stderr) {
-      if (err) { return reject(err,stdout, stderr); }
+      console.log(stdout);
       if (callback) {
         callback(stdout);
+      }
+      if (err) {
+        return reject(err, stdout, stderr);
       }
       return resolve(stdout);
     }
@@ -69,7 +72,6 @@ async function build(packageDir) {
     logger.info('current source dir', process.env.PACKAGE_DIR, process.env.VERSION);
     return execPromise(`webpack --config ${path.resolve(__dirname, '../', 'webpack.production.config.js')} --progress --profile --colors`)
     .then((out) => {
-      logger.info(out);
       return true;
     })
     .catch((err, stdout, stderr) => {

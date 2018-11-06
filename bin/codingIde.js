@@ -5,6 +5,7 @@ const path = require('path');
 const stepFactory = require('../lib/step');
 const parse = require('../lib/parse');
 const log4js = require('log4js');
+const fs = require('fs');
 // const generateI18n = require('../.script/generateI18n')
 
 const logger = log4js.getLogger('cloudstudio-sdk');
@@ -13,11 +14,18 @@ logger.level = 'debug';
 function execPromise(command, options = {}, callback) {
   return new Promise((resolve, reject) => {
     return exec(command, options, function (err, stdout, stderr) {
-      console.log(stdout);
+      // console.log(stdout);
       if (callback) {
         callback(stdout);
       }
       if (err) {
+        const data = new Uint8Array(Buffer.from(stdout));
+        fs.writeFile(`${process.env.PACKAGE_DIR}/cloudstudio.error.log`, data, (err) => {
+          if (err) throw err;
+          logger.error('Error Log:');
+          console.log(stdout);
+          logger.error(`Build fail. log file: ${process.env.PACKAGE_DIR}/cloudstudio.error.log`);
+        });
         return reject(err, stdout, stderr);
       }
       return resolve(stdout);
@@ -75,7 +83,6 @@ async function build(packageDir) {
       return true;
     })
     .catch((err, stdout, stderr) => {
-      logger.error(err.message);
       return false;
     });
   });

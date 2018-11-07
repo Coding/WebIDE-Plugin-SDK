@@ -12,6 +12,17 @@ const generalExtenalAlias = createExternalAlias({
   'react-dom': 'lib/reactDom',
   'mobx-react': 'lib/mobxReact',
   react: 'lib/react',
+  lodash: 'lib/lodash',
+  classnames: 'lib/classnames',
+  eventemitter: 'lib/eventemitter',
+  eventemitter3: 'lib/eventemitter',
+  moment: 'lib/moment',
+  axios: 'lib/axios',
+  'styled-components': 'lib/styled',
+  clipboard: 'lib/clipboard',
+  redux: 'lib/redux',
+  'redux-thunk': 'lib/reduxThunk',
+  'prop-types': 'lib/propTypes',
 });
 
 exports.createExternalAlias = createExternalAlias;

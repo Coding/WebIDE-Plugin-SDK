@@ -82,7 +82,7 @@ let userConfig = {};
 try {
   userConfig = require(`${process.env.PACKAGE_DIR}/config/webpack.dev.config.js`);
 } catch (err) {
-  console.log(err);
+  console.log(`No user config: ${err.message}`);
 }
 
 const protectedProps = [

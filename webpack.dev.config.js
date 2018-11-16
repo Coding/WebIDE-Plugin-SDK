@@ -75,7 +75,6 @@ const defaultConfig = {
     generalExtenalAlias,
     'cloudstudio',
   ],
-
 };
 
 let userConfig = {};

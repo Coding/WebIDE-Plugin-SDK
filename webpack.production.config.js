@@ -13,11 +13,12 @@ if (buildEntryFromEnv) {
 const config = require(buildEntryFromEnv ? `${buildEntryFromEnv}/package.json` : 'codingIdePlugin/package.json');
 
 const version = process.env.VERSION || config.codingIdePackage.version || config.version;
+const isSnapshot = process.env.SNAPSHOT || false;
 
 const defaultConfig = {
   entry: buildEntryFromEnv ? `${buildEntryFromEnv}/src` : './node_modules/codingIdePlugin/src',
   output: {
-    path: path.join(buildEntryFromEnv, 'dist', version),
+    path: path.join(buildEntryFromEnv, 'dist', isSnapshot ? '' : version),
     filename: 'index.js',
   },
   resolve: {

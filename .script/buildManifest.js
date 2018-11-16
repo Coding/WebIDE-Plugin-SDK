@@ -11,7 +11,7 @@ packageConfig.codingIdePackage.version = VERSION || packageConfig.codingIdePacka
 const version = packageConfig.codingIdePackage.version
 const newPackage = mapPackage(packageConfig)
 const outputPath = process.env.SNAPSHOT ? `dist/manifest.json` : `dist/${version}/manifest.json`;
-const newPackage = mapPackage(packageConfig)
+
 fs.writeFile(outputPath, JSON.stringify(newPackage, null, 4), 
 function(err) {
     if(err) {

@@ -24,7 +24,10 @@ function execPromise(command, options = {}, callback) {
           if (err) throw err;
           logger.error('Error Log:');
           console.log(stdout);
-          logger.error(`Build fail. log file: ${process.env.PACKAGE_DIR}/cloudstudio.error.log`);
+          if (command.startsWith('webpack --config')) {
+            execPromise('node_modules/.bin/rimraf dist/**');
+            logger.error(`Build fail. log file: ${process.env.PACKAGE_DIR}/cloudstudio.error.log`);
+          }
         });
         return reject(err, stdout, stderr);
       }

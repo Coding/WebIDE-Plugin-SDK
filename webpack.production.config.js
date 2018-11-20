@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const merge = require('webpack-merge');
 const WebpackBar = require('webpackbar');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const { generalExtenalAlias } = require('./utils/createExternalAlias');
 
 const buildEntryFromEnv = process.env.PACKAGE_DIR;
@@ -55,12 +56,8 @@ const defaultConfig = {
       },
       __DEV__: false,
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        drop_debugger: true,
-      },
+    new UglifyJSPlugin({
+      cache: true,
     }),
     new ExtractTextPlugin({
       disable: false,

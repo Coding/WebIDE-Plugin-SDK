@@ -39,6 +39,7 @@
     "sinon": "^1.17.6",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.5.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^2.2.1",
     "webpack-cleanup-plugin": "^0.4.1",
     "webpack-dev-middleware": "^1.10.1",

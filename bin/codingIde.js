@@ -81,7 +81,7 @@ async function build(packageDir) {
   await step(`[${stepNum++}] build source`, () => {
     process.env.PACKAGE_DIR = process.env.PACKAGE_DIR || path.resolve(__dirname, '../../../');
     logger.info('current source dir', process.env.PACKAGE_DIR, process.env.VERSION);
-    return execPromise(`webpack --config ${path.resolve(__dirname, '../', 'webpack.production.config.js')} --progress --profile --colors`)
+    return execPromise(`webpack --mode=production --config ${path.resolve(__dirname, '../', 'webpack.production.config.js')} --progress --profile --colors`)
     .then((out) => {
       return true;
     })

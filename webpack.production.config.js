@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const merge = require('webpack-merge');
 const WebpackBar = require('webpackbar');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const { generalExtenalAlias } = require('./utils/createExternalAlias');
 
 const buildEntryFromEnv = process.env.PACKAGE_DIR;
@@ -22,6 +22,7 @@ const defaultConfig = {
     path: path.join(buildEntryFromEnv, 'dist', isSnapshot ? '' : version),
     filename: 'index.js',
   },
+  mode: 'production',
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
@@ -56,10 +57,8 @@ const defaultConfig = {
       },
       __DEV__: false,
     }),
-    new UglifyJsPlugin({
-      compress: true,
-      ecma: 6,
-      comments: false,
+    new UglifyJSPlugin({
+      parallel: true
     }),
     new ExtractTextPlugin({
       disable: false,

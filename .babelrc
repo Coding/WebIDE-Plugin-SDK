@@ -1,8 +1,36 @@
 {
   "presets": [
-    ["env", {"modules": false}],
-    "es2015",
-    "react",
-    "stage-0"
-  ]
+    ["@babel/preset-env", {"modules": false, "useBuiltIns": "entry"}],
+    "@babel/preset-react",
+    ["@babel/preset-stage-0", { "decoratorsLegacy": true }]
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true,
+      "moduleName": "@babel/runtime"
+    }],
+    "@babel/plugin-syntax-export-default-from",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "@babel/plugin-transform-react-constant-elements"
+      ]
+    },
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    },
+    "test": {
+      "presets": ["@babel/preset-es2015", "@babel/preset-react", "@babel/preset-stage-0"],
+        "plugins": [
+          ["@babel/plugin-proposal-decorators", { "legacy": true }]
+        ]
+    }
+  }
 }

@@ -25,6 +25,7 @@ const defaultConfig = {
       home: path.join(process.env.PACKAGE_DIR, 'src'),
     },
   },
+  mode: 'development',
   devtool: 'eval-source-map',
   resolveLoader: {
     modules: [path.resolve(__dirname, 'loaders／'), 'node_modules'],

@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const merge = require('webpack-merge');
 const WebpackBar = require('webpackbar');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { generalExtenalAlias } = require('./utils/createExternalAlias');
 
 const buildEntryFromEnv = process.env.PACKAGE_DIR;
@@ -33,7 +34,7 @@ const defaultConfig = {
   },
   module: {
     rules: [
-      { test: /\.jsx?$/, use: ['babel-loader'], options: { presets: ['es2015'] } },
+      { test: /\.jsx?$/, use: ['babel-loader'] },
       { test: /\.styl$/,
         use: [
           'style-loader',
@@ -55,11 +56,13 @@ const defaultConfig = {
       },
       __DEV__: false,
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    new UglifyJsPlugin({
       compress: {
         warnings: false,
         screw_ie8: true,
         drop_debugger: true,
+        ecma: 6,
+        comments: false,
       },
     }),
     new ExtractTextPlugin({

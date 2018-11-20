@@ -57,13 +57,9 @@ const defaultConfig = {
       __DEV__: false,
     }),
     new UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        drop_debugger: true,
-        ecma: 6,
-        comments: false,
-      },
+      compress: true,
+      ecma: 6,
+      comments: false,
     }),
     new ExtractTextPlugin({
       disable: false,

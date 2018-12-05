@@ -23,6 +23,7 @@ const generalExtenalAlias = createExternalAlias({
   redux: 'lib/redux',
   'redux-thunk': 'lib/reduxThunk',
   'prop-types': 'lib/propTypes',
+  'cloudstudio-extension': 'cloudstudio',
 });
 
 exports.createExternalAlias = createExternalAlias;

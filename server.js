@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
 const PORT = process.env.PORT || 4000;
 
 const corsOptions = {
-  origin: 'http://localhost:8060',
+  origin: ['http://localhost:8060','http://ide.test:8060'],
   optionsSuccessStatus: 200,
   credentials: true,
 };

@@ -1,6 +1,6 @@
 {
-  "name": "webide-plugin-sdk",
-  "version": "0.1.5",
+  "name": "cloudstudio-sdk",
+  "version": "0.1.6",
   "description": "WebIDE-Plugin-SDK for Coding WebIDE",
   "repository": {
     "url": "git@github.com:Coding/WebIDE-Plugin-SDK.git"

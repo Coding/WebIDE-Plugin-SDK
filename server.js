@@ -69,7 +69,7 @@ app.get('/packages/:pkgName/:version/manifest.json', (req, res) => {
 
 const webpackDevInstance = require('webpack-dev-middleware')(compiler, {
   publicPath: `/packages/${codingPackage.name}/${codingPackage.version}`,
-  headers: { 'Access-Control-Allow-Origin': 'http://localhost:8060' },
+  headers: { 'Access-Control-Allow-Origin': 'http://ide.test:8060' },
   historyApiFallback: true,
   quiet: false,
   noInfo: false,
